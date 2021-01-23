@@ -1,0 +1,10 @@
+projekat prva faza:
+1) da predstavimo kako ce to da izgleda, da li ce da bude lista. 
+u koznoli da se ispisuje x o (lista lista listi) STRUKTURA aplikacije
+2)formiranje pocetnog stanja aplikacije
+3) fje za testiranje kraja
+4) omoguci izbor ko ce prvi da igra(covek ili racunar)
+5) impl da se unosi potez i da se prikazuje stanje nakon poteza
+NE MORA SVE DA SE UKLOPI ODNOSNO DA RADI NEGO NAM TREBAJU SAMO OSNOVNI
+ELEMENTI
+

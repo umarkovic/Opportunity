@@ -1,0 +1,133 @@
+﻿@model List<Ad>
+@{
+    ViewData["Title"] = "User home page";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<div class="bg-light p-5 rounded mt-3 ad_new">
+    <h1>Newest job and practise ads</h1>
+    <p class="lead">Filter ads by pressing the type of job you are searching</p>
+    
+</div>
+
+@Html.ActionLink("All", "UserSignedIn", new { email = ViewBag.Email, typeofjob = (Ad)null }, new { @class = "btn btn-primary  btn_typeJob" })
+@Html.ActionLink("Programming", "UserSignedIn", new { email = ViewBag.Email, typeofjob = "Programming" }, new { @class = "btn btn-primary  btn_typeJob" })
+@Html.ActionLink("System administration", "UserSignedIn", new { email = ViewBag.Email, typeofjob = "Administration" }, new { @class = "btn btn-primary  btn_typeJob" })
+@Html.ActionLink("Management", "UserSignedIn", new { email = ViewBag.Email, typeofjob = "Management" }, new { @class = "btn btn-primary  btn_typeJob" })
+@Html.ActionLink("UX designer", "UserSignedIn", new { email = ViewBag.Email, typeofjob = "UX designer" }, new { @class = "btn btn-primary  btn_typeJob" })
+@Html.ActionLink("Support", "UserSignedIn", new { email = ViewBag.Email, typeofjob = "Support" }, new { @class = "btn btn-primary  btn_typeJob" })
+@Html.ActionLink("Selling/Adviser", "UserSignedIn", new { email = ViewBag.Email, typeofjob = "Adviser" }, new { @class = "btn btn-primary  btn_typeJob" })
+@Html.ActionLink("Practice", "UserSignedIn", new { email = ViewBag.Email, typeofjob = "Practice" }, new { @class = "btn btn-primary btn_typeJob" })
+
+<hr />
+
+
+@foreach (var item in Model)
+{
+
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                @if (item.TypeOfJob == "Programming")
+                {<strong class="d-inline-block mb-2 text-danger">@item.TypeOfJob</strong> }
+            else if (item.TypeOfJob == "Practise")
+            { <strong class="d-inline-block mb-2 text-success">@item.TypeOfJob</strong>}
+        else if (item.TypeOfJob == "Menagment")
+        { <strong class="d-inline-block mb-2 text-primary">@item.TypeOfJob</strong>}
+    else if (item.TypeOfJob == "UX designer")
+    { <strong class="d-inline-block mb-2 text-info">@item.TypeOfJob</strong>}
+else if (item.TypeOfJob == "Support")
+{ <strong class="d-inline-block mb-2 text-warning">@item.TypeOfJob</strong>}
+else
+{<strong class="d-inline-block mb-2 text-secondary">@item.TypeOfJob</strong>}
+                <strong class="d-inline-block mb-2 ">@item.TypeOfWork</strong>
+                <h3 class="mb-0">@item.EmailFirm</h3>
+                <div class="mb-1 text-muted">@item.AdSetted.Day-@item.AdSetted.Month-@item.AdSetted.Year @item.AdSetted.Hour:@item.AdSetted.Minute</div>
+                <div class="span_box mb-auto" style="display:flex; flex-direction:row; flex-wrap:wrap ">
+
+                    @foreach (var skill in item.Technologies)
+                    {
+
+                        var random = new Random();
+                        var color = String.Format("#{0:X6}", random.Next(0x1000000));
+
+                        <span class="badge rounded-pill" style="        background-color: @color;
+        width: 120px;
+        padding-left: 10px;
+        color: white;
+        flex-grow: 4;">@skill</span>
+
+                    }
+                </div>
+                <hr />
+                @if (item.Description == "")
+                {<p class="mb-auto">Firm posted ad for position: @item.TypeOfJob with seniority: @item.Seniority working: @item.TypeOfWork</p>}
+            else
+            {<p class="card-text mb-auto">@item.Description</p>}
+
+                @if (item.OnlineInterView == true)
+                {<p class="card-text mb-auto">Interview is online!</p>}
+
+                <hr />
+                @Html.ActionLink("Ad profile", "AdProfile", new { idAd = item.IdAd, typeofJob = item.TypeOfJob }, new { @class = "btn btn-primary " })
+
+            </div>
+            <div class="col-auto d-none d-lg-block" style="max-width: 25%;">
+                <svg class="bd-placeholder-img" width="200" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title> @if (item.City.ToLower() == "nis")
+                    {
+                        <rect width="100%" height="100%" fill="#b079b9" />
+ }
+                    else if (item.City.ToLower() == "beograd")
+                    {
+                        <rect width="100%" height="100%" fill="#0c7482" />
+ }
+                    else if (item.City.ToLower() == "novi sad")
+                    {
+                        <rect width="100%" height="100%" fill="#607d8b" />
+ }
+                    else
+                    {
+                        <rect width="100%" height="100%" fill="#55595c" />
+}
+                    <text x="10%" y="50%" fill="#eceeef" dy=".3em">@item.City</text>
+                </svg>
+
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+
+
+
+<style>
+    .button_ad {
+        width: fit-content;
+    }
+
+    .span_box {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .span_element {
+        width: 50px;
+        margin-left: 10px;
+    }
+
+    .btn_typeJob {
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+    .ad_new {
+        width: 100%;
+        border-radius: 3rem;
+        margin-bottom: 20px;
+    }
+</style>
+<script>
+    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+</script>

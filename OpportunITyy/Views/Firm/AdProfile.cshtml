@@ -1,0 +1,171 @@
+﻿@model Ad
+@{
+
+
+    Layout = "~/Views/Shared/_Layout2Firm.cshtml";
+}
+<meta name="author" content="">
+<link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
+<link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="cover.css" rel="stylesheet">
+ 
+
+<body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+            <div class="inner">
+                <h3 class="masthead-brand">Skills required</h3>
+                <div class="span_box justify-content-center">
+
+                    @foreach (var skill in Model.Technologies)
+                    {
+
+                        var random = new Random();
+                        var color = String.Format("#{0:X6}", random.Next(0x1000000));
+
+                        <span class="badge rounded-pill span_element" style="background-color: @color; width:120px; padding-left:10px;  color:white;">@skill</span>
+
+                    }
+                </div>
+
+                <nav class="nav nav-masthead justify-content-center">
+
+                    <a class="nav-link"> <strong>Added by: </strong></a>
+                    <a class="nav-link active" href="#"> @Model.EmailFirm</a>
+                    <a class="nav-link"> <strong> Dated added:</strong> @Model.AdSetted</a>
+                </nav>
+            </div>
+        </header>
+
+        <main role="main" class="inner cover">
+
+            @if (Model.TypeOfJob == "Programming")
+            {<h1 class="cover-heading text-danger">@Model.TypeOfJob</h1> }
+        else if (Model.TypeOfJob == "Practise")
+        { <h1 class="cover-heading text-success">@Model.TypeOfJob</h1>}
+    else if (Model.TypeOfJob == "Menagment")
+    { <h1 class="cover-heading text-primary">@Model.TypeOfJob</h1>}
+else if (Model.TypeOfJob == "UX designer")
+{ <h1 class="cover-heading text-info">@Model.TypeOfJob</h1>}
+else if (Model.TypeOfJob == "Support")
+{ <h1 class="cover-heading text-warning">@Model.TypeOfJob</h1>}
+else
+{<h1 class="cover-heading text-secondary">@Model.TypeOfJob</h1>}
+            <hr />
+            <h5 class="cover-heading">@Model.TypeOfWork </h5>
+
+
+            @if (Model.Description == "")
+            {<p class="lead">Firm posted ad for position: @Model.TypeOfJob with seniority: @Model.Seniority working: @Model.TypeOfWork</p>}
+        else
+        {<p class="lead"> @Model.Description</p>}
+            <p class="lead"> <strong>Firm location </strong>: @Model.City </p>
+            @if (Model.OnlineInterView == true)
+            {<p class="lead"> Interview is online! </p>}
+
+
+        </main>
+
+
+
+        @if (Model.AppliedUsers.Count() == 0)
+        {
+            <h3> No one applied to this ad</h3>
+            <hr />
+        }
+        else
+        {
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th style="width:15%;">First name</th>
+                <th style="width:20%;">Last name</th>
+                <th style="width:20%;">Email </th>
+                <th style="width:20%;">Date applied</th>
+                <th style="width:20%;">User profile</th>
+                <th style="width:20%;"> CV</th>
+
+
+
+
+            </tr>
+        </thead>
+
+
+
+
+        @foreach (var item in Model.AppliedUsers)
+        {
+
+
+            <tr>
+
+                <td>@item.Fname</td>
+                <td>@item.Lname</td>
+                <td>@item.Email</td>
+                <td>@item.Time.Day-@item.Time.Month-@item.Time.Year @item.Time.Hour:@item.Time.Minute</td>
+                <td>@Html.ActionLink("User Profile", "UserProfile", "Firm", new { email = item.Email }, new { @class = "btn btn-primary" }) </td>
+                <td>@Html.ActionLink("CV", "ViewCv", "Firm", new { cvpath = item.CvPath }, new { @class = "btn btn-primary" }) </td>
+
+
+
+
+            </tr>
+
+            
+
+        }
+    </table>
+    
+        }
+
+
+    
+
+
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+</body>
+
+<style>
+    .button_ad {
+        width: fit-content;
+    }
+
+    .span_box {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .span_element {
+        width: 50px;
+        margin-left: 10px;
+        max-width: 80px;
+        max-height: 35px;
+        font-size: 16px;
+        box-sizing:border-box;
+    }
+
+    .btn_typeJob {
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+
+    .ad_new {
+        width: 100%;
+        border-radius: 3rem;
+        margin-bottom: 20px;
+    }
+</style>

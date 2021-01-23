@@ -1,0 +1,95 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pictures\**" />
+    <Content Remove="Pictures\**" />
+    <EmbeddedResource Remove="Pictures\**" />
+    <None Remove="Pictures\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Core" Version="1.6.0" />
+    <PackageReference Include="CassandraCSharpDriver" Version="3.16.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Content\main_page\coming-soon.css" />
+    <None Include="wwwroot\Content\main_page\coming-soon.min.css" />
+    <None Include="wwwroot\Content\main_page\css\coming-soon.css" />
+    <None Include="wwwroot\Content\main_page\css\coming-soon.min.css" />
+    <None Include="wwwroot\Content\main_page\css\coming-soon.scss" />
+    <None Include="wwwroot\Content\main_page\css\_bootstrap-overrides.scss" />
+    <None Include="wwwroot\Content\main_page\css\_global.scss" />
+    <None Include="wwwroot\Content\main_page\css\_masthead.scss" />
+    <None Include="wwwroot\Content\main_page\css\_mixins.scss" />
+    <None Include="wwwroot\Content\main_page\css\_social.scss" />
+    <None Include="wwwroot\Content\main_page\css\_variables.scss" />
+    <None Include="wwwroot\Content\main_page\js\coming-soon.js" />
+    <None Include="wwwroot\Content\main_page\js\coming-soon.min.js" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap-grid.css" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap.css" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap.css.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\js\bootstrap.js.map" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\Content\main_page\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\all.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\all.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\brands.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\brands.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\fontawesome.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\fontawesome.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\regular.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\regular.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\solid.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\solid.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\svg-with-js.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\svg-with-js.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\v4-shims.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\css\v4-shims.min.css" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-brands-400.eot" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-brands-400.ttf" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-brands-400.woff" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-regular-400.eot" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-regular-400.ttf" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-regular-400.woff" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-solid-900.eot" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-solid-900.ttf" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-solid-900.woff" />
+    <None Include="wwwroot\Content\main_page\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\Content\main_page\vendor\jquery\jquery.js" />
+    <None Include="wwwroot\Content\main_page\vendor\jquery\jquery.min.js" />
+    <None Include="wwwroot\Content\main_page\vendor\jquery\jquery.min.map" />
+    <None Include="wwwroot\Content\main_page\vendor\jquery\jquery.slim.js" />
+    <None Include="wwwroot\Content\main_page\vendor\jquery\jquery.slim.min.js" />
+    <None Include="wwwroot\Content\main_page\vendor\jquery\jquery.slim.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Files\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,29 @@
+﻿@model List<Ads_user_applied>
+@{
+
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<table class="table">
+
+    <thead>
+        <tr>
+
+            <th style="width:20%;">Type of job</th>
+            <th style="width:15%;">Time you applied to ad</th>
+            <th style="width:20%;">Ad profile</th>
+
+
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.TypeOfJob</td>
+            <td>@item.Time.Day-@item.Time.Month-@item.Time.Year @item.Time.Hour:@item.Time.Minute</td>
+            <td>@Html.ActionLink("Ad profile", "AdProfile", new { idAd = item.IdAd, typeofJob = item.TypeOfJob}, new { @class = "btn btn-primary" }) </td>
+        </tr>
+
+    }
+</table>

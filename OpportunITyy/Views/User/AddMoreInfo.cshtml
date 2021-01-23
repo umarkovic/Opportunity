@@ -1,0 +1,70 @@
+﻿@model User
+@{
+
+
+
+
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+@using (@Html.BeginForm())
+
+{
+
+    <div>
+
+        <select asp-for="Skills" class="form-control" asp-items="ViewBag.Skills" multiple>
+            <option value="" hidden> Choose skills</option>
+
+        </select>
+        @Html.ValidationMessageFor(m => m.Skills, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div>
+        <select asp-for="Education" class="form-control" asp-items="ViewBag.Education">
+            <option value=""> Choose degree of education </option>
+
+        </select>
+        @Html.ValidationMessageFor(m => m.Education, "", new { @class = "text-danger" })
+
+    </div>
+
+    <div class="form-group col-sm-12">
+        <label asp-for="@Model.Description" class="col-lg-3 control-label"></label>
+        <br>
+        <div class="col-lg-9">
+            @Html.TextAreaFor(m => m.Description, new { placeholder = "Description", @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="form-group col-sm-12">
+        <label asp-for="@Model.Location" class="col-lg-3 control-label"></label>
+        <br>
+        <div class="col-lg-9">
+            @Html.TextBoxFor(m => m.Location, new { placeholder = "Location", @class = "form-control" })
+
+        </div>
+    </div>
+
+
+
+
+    
+    <div class="form-group">
+        <div class="col-sm-12 btn-submit">
+            <button type="submit" class="btn btn-success">Save </button>
+
+        </div>
+    </div>
+
+
+}
+<script>
+    $('select').selectpicker();
+</script>

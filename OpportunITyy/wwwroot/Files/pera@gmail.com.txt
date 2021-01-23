@@ -1,0 +1,13 @@
+Za rad sa listama:
+-cons('a '( b c d))-drugi argument mora da bude lista(pravi listu)
+-append ( '(a b) '(c d))- oba agumenta moraju biti liste(pravi listu)
+-list ( a b c d)- stampa listu
+
+
+-globalne promenljive
+setq varijabla vrednost
+(setq a '(1 2 3))
+
+uslovi grananja:
+(cond ((equal op 'zbir) (+ 4 5))
+      ((equal op 'proizvod) (* 4 5))

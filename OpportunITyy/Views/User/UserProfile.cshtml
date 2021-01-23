@@ -1,0 +1,84 @@
+﻿@model User
+@{
+
+
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+
+            <img src="~/Content/main_page/pictures/img_avatar.jpg" alt="User">
+
+            <h2>@Html.DisplayFor(model => model.Email)</h2>
+
+            <p class="lead text-muted"> @Html.DisplayFor(model => model.FName)  @Html.DisplayFor(model => model.LName)</p>
+            <hr />
+            <div class="span_box">
+
+                @foreach (var skill in Model.Skills)
+                {
+
+                    var random = new Random();
+                    var color = String.Format("#{0:X6}", random.Next(0x1000000));
+
+                    <span class="badge rounded-pill" style="background-color: @color; width:120px; padding-left:10px;  color:white;">@skill</span>
+
+                }
+            </div>
+            <hr />
+            <p class="lead text-muted">  @Html.DisplayFor(model => model.Description) </p>
+            @if (Model.Education != null)
+            {<p class="lead text-muted">Education: @Html.DisplayFor(model => model.Education) </p>}
+            @if (Model.Location != null)
+            {<p class="lead text-muted">Location: @Html.DisplayFor(model => model.Location) </p>}
+
+            <p>
+                @Html.ActionLink("Edit profile ", "EditUser", "User", "", new { @class = "btn btn-primary" })
+                @Html.ActionLink("Ads history", "GetUserHistory", "User", "", new { @class = "btn btn-primary" })
+                @Html.ActionLink("Saved ads", "GetSavedAds", "User", "", new { @class = "btn btn-primary" })
+                @Html.ActionLink("Applied ads", "GetAppliedAds", "User", "", new { @class = "btn btn-primary" })
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<style>
+
+
+    .span_box {
+        display: flex;
+        flex-direction: row;
+        padding-left: 33%;
+        padding-right: 33%;
+    }
+
+    .span_element {
+        width: 50px;
+        margin-left: 10px;
+    }
+    img {
+        border-radius: 50%;
+        height:200px;
+        width:200px;
+    }
+    .container
+    {width:800px;
+
+
+    }
+    .collapse navbar-collapse justify-content-md-center{
+        padding-left:50%
+    }
+    
+</style>
+
+
+

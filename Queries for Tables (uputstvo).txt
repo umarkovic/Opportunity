@@ -1,0 +1,87 @@
+Pre pokretanja aplikacije izvršiti sledeće queri-e:
+
+CREATE TABLE user (
+    email text,
+    password text,
+    fname text,
+    lname text,
+    education text, 
+    adsaved map <uuid,text>,  
+    description text,
+    location text,
+    skills set<text>,
+    PRIMARY KEY (email)
+) 
+CREATE TABLE user_ads_history (
+      email text,
+      time timestamp,
+      idad uuid,
+      typeofjob text,
+      PRIMARY KEY (email, time)
+ ) WITH CLUSTERING ORDER BY(time DESC)
+
+CREATE TABLE ads_user_applied (
+      email text,
+      time timestamp,
+      idad uuid,
+      typeofjob text,
+      PRIMARY KEY (email, time)
+ )  
+---------------------------------------------
+CREATE TABLE firm (
+    email text,
+    password text,
+    nameoffirm text,
+    description text,
+    location text,
+    PRIMARY KEY (email)
+) 
+CREATE TABLE ads_by_firm (
+      email text,
+      time timestamp,
+      idad uuid,
+      typeofjob text,
+      PRIMARY KEY (email, idad)
+ )  
+	
+CREATE TABLE Ad (
+    TypeOfJob text,
+    idAd uuid,
+    emailFirm text,
+    City text,
+    seniority text,
+    AdSetted timestamp,
+    TypeOfWork text,
+    OnlineInterView boolean,
+    ActiveStatus boolean,
+    description text,
+    technologies set<text>,
+    PRIMARY KEY (typeofjob,idAd)
+)
+
+CREATE TABLE firm_applied_users (
+         idad uuid,                    
+         email text,
+         fname text,
+         lname text,
+         typeofjob text,        
+         time timestamp,
+         cvpath text,
+PRIMARY KEY(idad,time)
+) WITH CLUSTERING ORDER BY (time DESC)
+         
+
+
+
+
+
+                                                  
+
+         
+
+
+
+
+
+                                                  
+

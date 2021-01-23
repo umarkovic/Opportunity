@@ -1,0 +1,9 @@
+task:
+slika u editu se menja kao se ne uploaduje nista
+postavljen komentar se ne vidi iz nepoznatog razloga
+follow otvara neki drugi layout a ne za usera
+
+
+
+
+-dolar za add record ako moze

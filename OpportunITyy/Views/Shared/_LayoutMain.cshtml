@@ -1,0 +1,142 @@
+﻿@{
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+    <title>@ViewData["Title"] - OpportunITyy</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/main_page/vendor/bootstrap/css/bootstrap.min.css?1424511347" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="~/Content/main_page/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="~/Content/main_page/coming-soon.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="~/Content/main_page/video_gif/bg_it.mp4" type="video/mp4">
+    </video>
+
+    <div class="masthead">
+        <div class="masthead-bg"></div>
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-12 my-auto">
+                    <div class="masthead-content text-white py-5 py-md-0">
+                        <h1 class="mb-3">Opportun<strong style="color: #03a9f4">IT</strong>y</h1>
+                        <p class="mb-5">
+                            Find job or practise in  <strong>IT</strong> sector! Sign up or Login for newest firm ads!
+                        </p>
+                        <div class="input-group input-group-newsletter">
+
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModalCenter" style="        padding: .75rem .75rem .75rem .75rem;
+        font-size: 15px; font-family: 'Font Awesome 5 Brands';
+        margin-left: 30px
+">
+                                REGISTER
+                            </button>
+
+                          
+                            <a class="btn btn-secondary " asp-area="" asp-controller="Account" asp-action="Login" type="button" style="        padding: .75rem .75rem .75rem .75rem;
+        font-size: 15px;
+        font-family: 'Font Awesome 5 Brands';
+        font-weight: bold;
+        margin-left: 30px
+">LOGIN</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-icons">
+        <ul class="list-unstyled text-center mb-0">
+            <li class="list-unstyled-item">
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-unstyled-item">
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li class="list-unstyled-item">
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Content/main_page/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/main_page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="~/Content/main_page/js/coming-soon.min.js"></script>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content" style="        background-color: #ffffff6e" >
+                <div class="modal-header"  style="background-color: rgba(0, 46, 102, 0.8);">
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="color:white">REGISTER</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body user_register">
+                    <h5 style="color:white">
+                        Register as  <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    </h5>
+
+                    <a class="btn btn-secondary " asp-area="" asp-controller="Account" asp-action="RegisterUser" type="button" style="  color: white; padding: .75rem .75rem .375rem .75rem;
+        font-family: Font Awesome 5 Brands;
+        margin-left: 30px">USER</a>
+                   
+                </div>
+                <div class="modal-body firm_register">
+                    
+
+                    <h5 style="color:white">Register as <i class="fa fa-building" aria-hidden="true"></i> </h5>
+
+                    <a class="btn btn-secondary " asp-area="" asp-controller="Account" asp-action="RegisterFirm" type="button" style="color: white; padding: .75rem .75rem .375rem .75rem; font-family: 'Font Awesome 5 Brands'; margin-left: 30px ">FIRM</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<div hidden>@RenderBody()</div>
+</html>
+
+<style>
+
+    .firm_register {
+      
+    }
+    .user_register {
+        
+    }
+</style>

@@ -1,0 +1,102 @@
+﻿@model User
+@{
+
+
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+<div class="container">
+    <h1>Edit information about you</h1>
+
+    <form asp-action="EditUser" asp-controller="User" method="post">
+        @Html.HiddenFor(model => model.Email)
+        <div class="registerdiv">
+
+            <div class="form-group col-sm-12">
+                <label class="col-lg-3 control-label"><h3> First name </h3>  </label>
+                <br>
+                <div class="col-lg-9">
+                    @Html.EditorFor(model => model.FName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.FName, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label class="col-lg-3 control-label"> <h3> Last name </h3></label>
+                <br>
+                <div class="col-lg-9">
+                    @Html.EditorFor(model => model.LName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.FName, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label class="col-lg-3 control-label"><h3>Email </h3>  </label>
+                <br>
+                <div class="col-lg-9">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label class="col-lg-3 control-label"><h3> Skills </h3></label>
+                <br>
+                <div class="col-lg-9">
+                    <select asp-for="Skills" class="form-control" asp-items="ViewBag.Skills" multiple>
+                        <option value="" hidden> Choose skills</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label class="col-lg-3 control-label"><h3> Education </h3> </label>
+                <br>
+                <div class="col-lg-9">
+                    <select asp-for="Education" class="form-control" asp-items="ViewBag.Education">
+                        <option value=""> Choose degree of education </option>
+
+                    </select>
+                    @*@Html.ValidationMessageFor(m => m.LName)*@
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label class="col-lg-3 control-label"><h3> Description</h3></label>
+                <br>
+                <div class="col-lg-9">
+                    @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Description)
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <label class="col-lg-3 control-label"><h3> Location </h3></label>
+                <br>
+                <div class="col-lg-9">
+                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(m => m.Location)
+                </div>
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <div class="col-sm-12 btn-submit">
+                    <button type="submit" class="btn btn-success">Save changes</button>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    $('select').selectpicker();
+</script>

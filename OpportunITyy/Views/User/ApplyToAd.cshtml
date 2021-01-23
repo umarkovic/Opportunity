@@ -1,0 +1,95 @@
+﻿@model Ad
+@{
+
+
+
+
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+
+
+    
+
+
+        <body class="text-center">
+
+            <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+                <header class="masthead mb-auto">
+                    <div class="inner">
+                        
+                        <div class="span_box justify-content-center">
+
+
+                        </div>
+
+                        <nav class="nav nav-masthead justify-content-center">
+
+
+                        </nav>
+                    </div>
+                </header>
+
+                <main role="main" class="inner cover">
+                   
+
+                    @if (Model.TypeOfJob == "Programming")
+                    {<h1 class="cover-heading text-danger">@Model.TypeOfJob</h1> }
+                else if (Model.TypeOfJob == "Practise")
+                
+                    {<h1 class="cover-heading text-success">@Model.TypeOfJob</h1> }
+
+                    else if (Model.TypeOfJob == "Menagment")
+
+                {<h1 class="cover-heading text-primary">@Model.TypeOfJob</h1> }
+            else if (Model.TypeOfJob == "UX designer")
+
+
+            {<h1 class="cover-heading text-info">@Model.TypeOfJob</h1> }
+            else if (Model.TypeOfJob == "Support")
+
+            {<h1 class="cover-heading text-warning">@Model.TypeOfJob</h1> }
+            else
+            
+            {<h1 class="cover-heading text-secondary">@Model.TypeOfJob</h1> }
+
+
+                        
+
+                 <h3>at</h3> <h1 class="cover-heading text-primary"> @ViewBag.nameoffirm</h1>
+                <form asp-action="ApplyToAd" asp-controller="User" method="post" enctype="multipart/form-data">
+                    @Html.HiddenFor(model => model.IdAd)
+                    @Html.HiddenFor(model => model.TypeOfJob)
+                    <hr />
+                    <h5 class="cover-heading">Your email addres: @ViewBag.loggeduser </h5>
+                    <p class="lead"> Upload your CV </p>
+                    <p class="lead">
+                        <input class="form-control" name="files" type="file" />
+                        @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
+                        <hr />
+
+                    </p>
+                    <p class="lead">
+                        <input type="submit" class="btn btn-primary" />
+                    </p>
+
+                </form>
+          </main>
+
+
+            </div>
+        </body>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+   
